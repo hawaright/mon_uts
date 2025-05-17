@@ -31,7 +31,7 @@ class ContactScreen extends StatelessWidget {
             title: "Téléphone",
             subtitle: "+226 70444294",
             onTap: () async {
-              const tel = 'tel:+226XXXXXXXX';
+              const tel = 'tel:+22670444294';
               if (await canLaunch(tel)) {
                 await launch(tel);
               }
@@ -56,7 +56,7 @@ class ContactScreen extends StatelessWidget {
             icon: Icons.public,
             iconColor: redColor,
             title: "Site web",
-            subtitle: "https://uts.bf",
+            subtitle: "https://www.uts.bf",
             onTap: () async {
               const url = 'https://uts.bf';
               if (await canLaunch(url)) {
