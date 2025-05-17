@@ -1,0 +1,47 @@
+name: mon_uts
+description: "A new Flutter project."
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.2.6 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.2
+  animated_text_kit: ^4.2.2
+  carousel_slider: ^4.2.1
+  provider: ^6.1.1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^2.0.0
+  flutter_launcher_icons: ^0.13.1
+  url_launcher: ^6.2.5
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/images/img.png
+    - assets/images/logo_uts.png
+    - assets/images/img_1.png
+    - assets/images/img_2.png
+    - assets/images/img_3.png
+    - assets/images/img_4.png
+    - assets/images/img_5.png
+    - assets/images/img_6.png
+    - assets/images/img_7.png
+    - assets/images/img_8.png
+    - assets/images/bourses_uts.jpg
+    - assets/images/terrain_sport_uts.jpg
+    - assets/images/centre_santé_uts.jpg
+    - assets/images/associations_uts.jpg
+
+flutter_icons:
+  android: true
+  ios: true
+  image_path: "assets/images/icon/app_icon.png"
