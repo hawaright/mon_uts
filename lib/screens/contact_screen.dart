@@ -58,7 +58,7 @@ class ContactScreen extends StatelessWidget {
             title: "Site web",
             subtitle: "https://www.uts.bf",
             onTap: () async {
-              const url = 'https://uts.bf';
+              const url = 'https://www.uts.bf';
               if (await canLaunch(url)) {
                 await launch(url);
               }
