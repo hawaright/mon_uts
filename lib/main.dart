@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'screens/splash_screen.dart';
 import 'screens/home_screen.dart';
-import 'screens/setting_screen.dart';  // Vérifie bien le nom ici
+import 'screens/setting_screen.dart';
 import 'screens/theme_provider.dart';
 
 void main() {
