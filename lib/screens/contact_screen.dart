@@ -2,71 +2,72 @@ import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class ContactScreen extends StatelessWidget {
-  final Color redColor = Color(0xFFD32F2F);
+  final Color greenColor = Color(0xFF2E5A09);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text("Contact"),
-        backgroundColor: redColor,
+        backgroundColor: Colors.green[600],
       ),
       body: ListView(
         children: [
           ContactTile(
             icon: Icons.location_on,
-            iconColor: redColor,
+            iconColor: greenColor,
             title: "Adresse",
             subtitle: "Université Thomas SANKARA, Ouagadougou, Burkina Faso",
             onTap: () async {
-              const url = 'https://www.google.com/maps?q=Université+Thomas+Sankara+Ouagadougou';
-              if (await canLaunch(url)) {
-                await launch(url);
+              final Uri url = Uri.parse(
+                  'https://www.google.com/maps?q=Université+Thomas+Sankara+Ouagadougou');
+              if (await canLaunchUrl(url)) {
+                await launchUrl(url);
               }
             },
           ),
           ContactTile(
             icon: Icons.phone,
-            iconColor: redColor,
+            iconColor: greenColor,
             title: "Téléphone",
             subtitle: "+226 70444294",
             onTap: () async {
-              const tel = 'tel:+226XXXXXXXX';
-              if (await canLaunch(tel)) {
-                await launch(tel);
+              final Uri tel = Uri(scheme: 'tel', path: '+22670444294');
+              if (await canLaunchUrl(tel)) {
+                await launchUrl(tel);
               }
             },
           ),
           ContactTile(
             icon: Icons.email,
-            iconColor: redColor,
+            iconColor: greenColor,
             title: "Email",
             subtitle: "contact@uts.bf",
             onTap: () async {
-              final mail = Uri(
+              final Uri mail = Uri(
                 scheme: 'mailto',
                 path: 'contact@uts.bf',
               );
-              if (await canLaunch(mail.toString())) {
-                await launch(mail.toString());
+              if (await canLaunchUrl(mail)) {
+                await launchUrl(mail);
               }
             },
           ),
           ContactTile(
             icon: Icons.public,
-            iconColor: redColor,
+            iconColor: greenColor,
             title: "Site web",
-            subtitle: "https://uts.bf",
+            subtitle: "https://www.uts.bf",
             onTap: () async {
-              const url = 'https://uts.bf';
-              if (await canLaunch(url)) {
-                await launch(url);
+              final Uri url = Uri.parse('https://www.uts.bf');
+              if (await canLaunchUrl(url)) {
+                await launchUrl(url);
               }
             },
           ),
           ContactTile(
             icon: Icons.access_time,
-            iconColor: redColor,
+            iconColor: greenColor,
             title: "Horaires d'ouverture",
             subtitle: "Lun-Ven : 08h - 17h",
           ),
@@ -98,7 +99,8 @@ class ContactTile extends StatelessWidget {
       title: Text(title, style: TextStyle(fontWeight: FontWeight.bold)),
       subtitle: Text(subtitle),
       onTap: onTap,
-      trailing: onTap != null ? Icon(Icons.open_in_new, size: 18, color: Colors.grey) : null,
+      trailing:
+      onTap != null ? Icon(Icons.open_in_new, size: 18, color: Colors.grey) : null,
     );
   }
 }

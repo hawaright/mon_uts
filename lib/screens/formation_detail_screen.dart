@@ -11,7 +11,7 @@ class FormationDetailScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(formation.title),
-        backgroundColor: Colors.red[800],
+        backgroundColor: Colors.green[600],
       ),
       body: Padding(
         padding: const EdgeInsets.all(20.0),

@@ -143,20 +143,25 @@ Master en Mathematiques
   void _filterFormations(String query) {
     setState(() {
       _filteredFormations = _allFormations.where((formation) {
-        final titleLower = formation.title.toLowerCase();
-        final descriptionLower = formation.description.toLowerCase();
-        final searchLower = query.toLowerCase();
-        return titleLower.contains(searchLower) || descriptionLower.contains(searchLower);
+        final queryLower = query.toLowerCase();
+
+        return formation.title.toLowerCase().contains(queryLower) ||
+            formation.description.toLowerCase().contains(queryLower) ||
+            formation.diplomas.toLowerCase().contains(queryLower) ||
+            formation.debouches.toLowerCase().contains(queryLower);
       }).toList();
     });
   }
 
   @override
   Widget build(BuildContext context) {
+    final greenColor = Colors.green[600];
+
+
     return Scaffold(
       appBar: AppBar(
         title: Text('Formations à l’UTS'),
-        backgroundColor: Colors.red[800],
+        backgroundColor: greenColor,
       ),
       body: Column(
         children: [
@@ -172,7 +177,14 @@ Master en Mathematiques
             ),
           ),
           Expanded(
-            child: ListView.builder(
+            child: _filteredFormations.isEmpty
+                ? Center(
+              child: Text(
+                'Aucune formation trouvée.',
+                style: TextStyle(fontSize: 16),
+              ),
+            )
+                : ListView.builder(
               padding: EdgeInsets.all(16),
               itemCount: _filteredFormations.length,
               itemBuilder: (context, index) {

@@ -33,7 +33,7 @@ class VieCampusScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text("Vie de campus"),
-        backgroundColor: Color(0xFF2E7D32), // Vert UTS
+        backgroundColor: Colors.green[600],
       ),
       body: ListView.builder(
         padding: EdgeInsets.all(16),

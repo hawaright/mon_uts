@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class PresentationScreen extends StatelessWidget {
   final List<String> galleryImages = List.generate(
-    8,
+    12,
         (index) => 'assets/images/img_${index + 1}.png',
   );
 
@@ -13,7 +13,7 @@ class PresentationScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text("Présentation de l’UTS"),
-        backgroundColor: Color(0xFF2E7D32),
+        backgroundColor: Color(0xFF2E9F34),
       ),
       body: ListView(
         padding: EdgeInsets.all(16),
@@ -69,15 +69,38 @@ class PresentationScreen extends StatelessWidget {
               childAspectRatio: 1.2,
             ),
             itemBuilder: (context, index) {
-              return ClipRRect(
-                borderRadius: BorderRadius.circular(10),
-                child: Image.asset(
-                  galleryImages[index],
-                  fit: BoxFit.cover,
+              return GestureDetector(
+                onTap: () {
+                  showDialog(
+                    context: context,
+                    builder: (_) => Dialog(
+                      backgroundColor: Colors.transparent,
+                      child: GestureDetector(
+                        onTap: () => Navigator.pop(context),
+                        child: InteractiveViewer(
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(12),
+                            child: Image.asset(
+                              galleryImages[index],
+                              fit: BoxFit.contain,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                  );
+                },
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(10),
+                  child: Image.asset(
+                    galleryImages[index],
+                    fit: BoxFit.cover,
+                  ),
                 ),
               );
             },
           ),
+
           SizedBox(height: 24),
         ],
       ),

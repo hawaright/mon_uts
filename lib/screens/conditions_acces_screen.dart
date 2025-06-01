@@ -61,7 +61,7 @@ ou licence + 5 ans d’expérience dans le domaine des industries extractives.''
     return Scaffold(
       appBar: AppBar(
         title: Text("Conditions d’accès"),
-        backgroundColor: Colors.yellow,
+        backgroundColor: Colors.green[600],
       ),
       body: ListView.builder(
         padding: EdgeInsets.all(16),

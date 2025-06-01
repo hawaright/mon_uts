@@ -9,11 +9,9 @@ import 'vie_campus_screen.dart';
 import 'theme_provider.dart';
 import 'contact_screen.dart';
 
-
 class HomeScreen extends StatelessWidget {
-  final Color greenColor = Color(0xFF2E7D32);
-  final Color redColor = Color(0xFFD32F2F);
-  final Color yellowColor = Color(0xFFFFC107);
+  final Color greenColor = Color(0xFF2E7D32); // Vert foncé
+  final Color greenLight = Color(0xFF66BB6A); // Vert clair
 
   @override
   Widget build(BuildContext context) {
@@ -28,11 +26,6 @@ class HomeScreen extends StatelessWidget {
               padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 12),
               child: Row(
                 children: [
-                  CircleAvatar(
-                    radius: 30,
-                    backgroundImage: AssetImage('assets/images/logo_uts.png'),
-                  ),
-                  SizedBox(width: 12),
                   Expanded(
                     child: AnimatedTextKit(
                       animatedTexts: [
@@ -40,7 +33,7 @@ class HomeScreen extends StatelessWidget {
                           '"Il faut oser inventer l’avenir" - Thomas Sankara',
                           textStyle: TextStyle(
                             fontSize: 16,
-                            color: redColor,
+                            color: greenColor,
                             fontWeight: FontWeight.bold,
                           ),
                           speed: Duration(milliseconds: 70),
@@ -102,7 +95,7 @@ class HomeScreen extends StatelessWidget {
                       context,
                       icon: Icons.school_outlined,
                       label: "Formations",
-                      color: redColor,
+                      color: greenLight,
                       onTap: () => Navigator.push(
                         context,
                         MaterialPageRoute(builder: (_) => FormationsScreen()),
@@ -112,7 +105,7 @@ class HomeScreen extends StatelessWidget {
                       context,
                       icon: Icons.check_circle_outline,
                       label: "Conditions d’accès",
-                      color: yellowColor,
+                      color: greenLight,
                       onTap: () => Navigator.push(
                         context,
                         MaterialPageRoute(builder: (_) => ConditionsAccesScreen()),
@@ -132,13 +125,12 @@ class HomeScreen extends StatelessWidget {
                       context,
                       icon: Icons.contact_mail_outlined,
                       label: "Contact",
-                      color: redColor,
+                      color: greenLight,
                       onTap: () => Navigator.push(
                         context,
                         MaterialPageRoute(builder: (_) => ContactScreen()),
                       ),
                     ),
-
 
                     SizedBox(height: 20),
                     Divider(color: Colors.grey[300], thickness: 1),
